@@ -1,24 +1,25 @@
 [
-    {% for domain in data.results %}
-    {
-        "target": [
-            "{{ domain.name }}"
-        ],
-        "labels": {
-            "__meta_netbox_id": {{ domain.id }},
-            "__meta_netbox_url": "{{ domain.url }}",
-            "__meta_netbox_view_name": "{{ domain.view.name }}",
-            "__meta_netbox_status": "{{ domain.status }}",
-            "__meta_netbox_default_ttl": "{{ domain.default_ttl }}",
-            "__meta_netbox_soa_ttl": "{{ domain.soa_ttl }}",
-            "__meta_netbox_soa_mname": "{{ domain.soa_mname.name }}",
-            "__meta_netbox_soa_rname": "{{ domain.soa_rname }}",
-            "__meta_netbox_soa_serial": "{{ domain.soa_serial }}",
-            "__meta_netbox_soa_retry": "{{ domain.soa_retry }}",
-            "__meta_netbox_soa_expire": "{{ domain.soa_expire }}",
-            "__meta_netbox_soa_minimum": "{{ domain.soa_minimum }}",
-            "__meta_netbox_registrar": "{{ domain.registrar.name }}"
-        }
-    }{{ "," if not loop.last else "" }}
-    {%- endfor %}
+{% for domain in data.results %}
+  {
+    "targets": [
+      "{{ domain.name }}"
+    ],
+    "labels": {
+      "__meta_netbox_id": {{ domain.id }},
+      "__meta_netbox_url": "{{ domain.url }}",
+      "__meta_netbox_view_name": "{{ domain.view.name }}",
+      "__meta_netbox_status": "{{ domain.status }}",
+      "__meta_netbox_default_ttl": "{{ domain.default_ttl }}",
+      "__meta_netbox_soa_ttl": "{{ domain.soa_ttl }}",
+      "__meta_netbox_soa_mname": "{{ domain.soa_mname.name }}",
+      "__meta_netbox_soa_rname": "{{ domain.soa_rname }}",
+      "__meta_netbox_soa_serial": "{{ domain.soa_serial }}",
+      "__meta_netbox_soa_retry": "{{ domain.soa_retry }}",
+      "__meta_netbox_soa_expire": "{{ domain.soa_expire }}",
+      "__meta_netbox_soa_minimum": "{{ domain.soa_minimum }}",
+      "__meta_netbox_registrar": "{{ domain.registrar.name }}"
+    }
+  }{{ "," if not loop.last else "" }}
+{% endfor %}
 ]
+
