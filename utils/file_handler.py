@@ -1,4 +1,8 @@
-def export_to_html(content, filename="output/index.html"):
+import os
+
+file_path = os.getenv("NETBOX_DNS_SD_FILE_DIR", "./output")
+
+def export_to_json(content, filename=f"{file_path}/ds.json"):
     """
     Saves the given content to a file.
 

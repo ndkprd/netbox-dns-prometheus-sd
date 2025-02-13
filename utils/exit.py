@@ -7,7 +7,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] - %(message)s",
     datefmt="%Y-%m-%dT%H:%M:%S%z",
     handlers=[
-        logging.FileHandler("/var/log/netbox_dns_datasource/message.log"),
+        logging.FileHandler("/var/log/netbox_dns_sd/message.log"),
         logging.StreamHandler()
     ]
 )

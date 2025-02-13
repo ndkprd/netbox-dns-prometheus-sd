@@ -4,17 +4,17 @@ import time
 import logging
 from netbox_dns_sd.fetch import fetch_netbox_dns_data
 from netbox_dns_sd.template import template_datasource
-from utils.file_handler import export_to_html
+from utils.file_handler import export_to_json
 from utils.exit import shutdown_handler
 
-interval = int(os.getenv("NETBOX_DNS_DATASOURCE_REFRESH_INTERVAL", 300))
+interval = int(os.getenv("NETBOX_DNS_SD_REFRESH_INTERVAL", 300))
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] - %(message)s",
     datefmt="%Y-%m-%dT%H:%M:%S%z",
     handlers=[
-        logging.FileHandler("/var/log/netbox_dns_datasource/message.log"),
+        logging.FileHandler("/var/log/netbox_dns_sd/message.log"),
         logging.StreamHandler()
     ]
 )
@@ -31,10 +31,10 @@ def main():
                 logging.info("Rendering template...")
                 templated_data = template_datasource(data)
                 
-                logging.info("Exporting to HTML...")
-                export_to_html(templated_data)
+                logging.info("Exporting to json...")
+                export_to_json(templated_data)
                 
-                logging.info("Datasource updated successfully.")
+                logging.info("Service discovery endpoint updated successfully.")
 
             except Exception as e:
                 logging.error(f"Failed to update datasource with error: {e}")

@@ -1,0 +1,10 @@
+---
+
+services:
+  netbox-dns-sd:
+    image: ndkprd/netbox-dns-sd:0.1.0
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    ports:
+      - "52080:80"

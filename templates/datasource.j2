@@ -3,7 +3,7 @@
     {
         "target": [
             "{{ domain.name }}"
-        ]
+        ],
         "labels": {
             "__meta_netbox_id": {{ domain.id }},
             "__meta_netbox_url": "{{ domain.url }}",
@@ -19,6 +19,6 @@
             "__meta_netbox_soa_minimum": "{{ domain.soa_minimum }}",
             "__meta_netbox_registrar": "{{ domain.registrar.name }}"
         }
-    }
-    {% endfor %}
+    }{{ "," if not loop.last else "" }}
+    {%- endfor %}
 ]
