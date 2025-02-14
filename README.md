@@ -1,6 +1,6 @@
 # NETBOX DNS Prometheus SD
 
-Turn your [Netbox](https://netboxlabs.com) DNS zones from [Netbox DNS](https://github.com/netbox-community/netbox-dns) plugin into a [Prometheus](https://prometheus.io/) HTTP service discovery. Format inspired by [netbox-plugin-prometheus-sd](https://github.com/FlxPeters/netbox-plugin-prometheus-sd.
+Turn your [Netbox](https://netboxlabs.com) DNS zones from [Netbox DNS](https://github.com/netbox-community/netbox-dns) plugin into a [Prometheus](https://prometheus.io/) HTTP service discovery. Format inspired by [netbox-plugin-prometheus-sd](https://github.com/FlxPeters/netbox-plugin-prometheus-sd).
 
 *"Why not just make a plugin?"*
 
